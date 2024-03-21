@@ -1,5 +1,5 @@
 import express, { json } from "express";
-import { setApiKey, send } from "@sendgrid/mail";
+import sgMail from "@sendgrid/mail";
 process.loadEnvFile();
 
 const app = express();
@@ -7,10 +7,10 @@ const PORT = process.env.PORT || 3000;
 app.use(json());
 
 // Configurar la API key de SendGrid
-setApiKey(process.env.PUBLIC_SENDGRID_API_KEY);
+sgMail.setApiKey(process.env.PUBLIC_SENDGRID_API_KEY);
 
 // Ruta para enviar correos electrónicos
-app.post("/send-email", (req, res) => {
+app.post("/contact", (req, res) => {
   const { to, from, subject, text } = req.body;
 
   const msg = {
@@ -20,7 +20,7 @@ app.post("/send-email", (req, res) => {
     text,
   };
 
-  send(msg)
+  sgMail.send(msg)
     .then(() => {
       res.send({
         success: true,
