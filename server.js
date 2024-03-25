@@ -11,16 +11,17 @@ sgMail.setApiKey(process.env.PUBLIC_SENDGRID_API_KEY);
 
 // Ruta para enviar correos electrónicos
 app.post("/contact", (req, res) => {
-  const { to, from, subject, text } = req.body;
+  const { from, text, subject } = req.body;
 
   const msg = {
-    to,
+    to: "claudiomonguzzi80@gmail.com",
     from,
     subject,
     text,
   };
 
-  sgMail.send(msg)
+  sgMail
+    .send(msg)
     .then(() => {
       res.send({
         success: true,
@@ -29,12 +30,10 @@ app.post("/contact", (req, res) => {
     })
     .catch((error) => {
       console.error("Error al enviar el correo electrónico:", error);
-      res
-        .status(500)
-        .send({
-          success: false,
-          error: "Hubo un problema al enviar el correo electrónico.",
-        });
+      res.status(500).send({
+        success: false,
+        error: "Hubo un problema al enviar el correo electrónico.",
+      });
     });
 });
 

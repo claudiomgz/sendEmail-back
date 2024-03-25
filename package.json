@@ -1,27 +1,26 @@
 {
-  "name": "sendmail-back",
+  "name": "sendemail-back",
   "version": "1.0.0",
-  "description": "mail API",
+  "description": "email API",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/claudiomgz/sendMail-back.git"
+    "url": "git+https://github.com/claudiomgz/sendEmail-back.git"
   },
   "keywords": [
-    "mail",
+    "email",
     "pi"
   ],
   "author": "Claudio Monguzzi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/claudiomgz/sendMail-back/issues"
+    "url": "https://github.com/claudiomgz/sendEmail-back/issues"
   },
-  "homepage": "https://github.com/claudiomgz/sendMail-back#readme",
+  "homepage": "https://github.com/claudiomgz/sendEmail-back#readme",
   "dependencies": {
     "@sendgrid/mail": "^8.1.1",
     "express": "^4.19.0"
