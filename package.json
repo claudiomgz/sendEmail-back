@@ -2,7 +2,7 @@
   "name": "sendemail-back",
   "version": "1.0.0",
   "description": "email API",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js"
