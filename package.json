@@ -5,8 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "deploy": "npm start"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
