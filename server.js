@@ -1,6 +1,6 @@
 import express, { json } from "express";
 import sgMail from "@sendgrid/mail";
-process.loadEnvFile();
+//process.loadEnvFile();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
