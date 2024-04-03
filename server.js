@@ -1,6 +1,6 @@
 import express, { json } from "express";
 import sgMail from "@sendgrid/mail";
-process.loadEnvFile();
+//process.loadEnvFile();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,13 +11,13 @@ sgMail.setApiKey(process.env.PUBLIC_SENDGRID_API_KEY);
 
 // Ruta para enviar correos electrónicos
 app.post("/contact", (req, res) => {
-  const { message, name, email } = req.body;
+  const { from, text, subject } = req.body;
 
   const msg = {
     to: "claudiomonguzzi80@gmail.com",
-    message,
-    name,
-    email,
+    from,
+    subject,
+    text,
   };
 
   sgMail
