@@ -6,6 +6,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(json());
 
+// Middleware para habilitar CORS
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Permitir todas las solicitudes
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST'); // Métodos permitidos
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Encabezados permitidos
+  next();
+});
+
 // Configurar la API key de SendGrid
 sgMail.setApiKey(process.env.PUBLIC_SENDGRID_API_KEY);
 
@@ -38,7 +46,7 @@ app.post("/contact", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Claudio Monguzzi API!");
+  res.send("Claudio Monguzzi Email API!");
 });
 
 // Ruta para mostrar un mensaje de bienvenida en la raíz de la API.
